@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "watch": "parcel src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/",
+    "watch": "parcel src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/ --no-hmr",
     "build": "parcel build src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/ --no-minify",
     "build-production": "parcel build src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/",
     "cleanup": "rm -rf .cache dist"
