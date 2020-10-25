@@ -1,0 +1,222 @@
+{
+  "blog_author" : {
+    "post_type" : "author",
+    "acf" : {
+      "author_bio" : {
+        "acf_key" : "author_bio",
+        "field_type" : "text"
+      },
+      "author_avatar" : {
+        "acf_key" : "author_avatar",
+        "field_type" : "attachment"
+      },
+      "author_page_subline" : {
+        "acf_key" : "author_subline",
+        "field_type" : "text"
+      }
+    }
+  },
+  "post" : {
+    "post_type" : "post",
+    "taxonomy" : "category",
+    "acf" : {
+      "post_author" : {
+        "acf_key" : "post_author",
+        "field_type" : "post_ref"
+      },
+      "post_image_credit" : {
+        "acf_key" : "post_image-credit",
+        "field_type" : "text"
+      },
+      "post_image_url" : {
+        "acf_key" : "post_image-url",
+        "field_type" : "url"
+      }
+    }
+  },
+  "press_release" : {
+    "post_type" : "press-release",
+    "acf" : {
+      "press_release_author" : {
+        "acf_key" : "press-release_author",
+        "field_type" : "post_ref"
+      },
+      "press_release_company" : {
+        "acf_key" : "press-release_company",
+        "field_type" : "text"
+      },
+      "press_release_phone" : {
+        "acf_key" : "press-release_phone",
+        "field_type" : "text"
+      }
+    }
+  },
+  "poi" : {
+    "post_type" : "point-of-interest",
+    "acf" : {
+      "location_formatted_name" : {
+        "acf_key" : "point-of-interest_title",
+        "field_type" : "text"
+      },
+      "location_address1" : {
+        "acf_key" : "point-of-interest_address-line-1",
+        "field_type" : "text"
+      },
+      "location_address2" : {
+        "acf_key" : "point-of-interest_address-line-2",
+        "field_type" : "text"
+      },
+      "location_address_lat" : {
+        "acf_key" : "point-of-interest_latitude",
+        "field_type" : "text"
+      },
+      "location_address_lng" : {
+        "acf_key" : "point-of-interest_longitude",
+        "field_type" : "text"
+      },
+      "location_city" : {
+        "acf_key" : "point-of-interest_city",
+        "field_type" : "text"
+      },
+      "location_state" : {
+        "acf_key" : "point-of-interest_state",
+        "field_type" : "text"
+      },
+      "location_zip" : {
+        "acf_key" : "point-of-interest_zip-code",
+        "field_type" : "text"
+      },
+      "location_formatted_phone" : {
+        "acf_key" : "point-of-interest_phone",
+        "field_type" : "text"
+      },
+      "location_website" : {
+        "acf_key" : "point-of-interest_website",
+        "field_type" : "text"
+      },
+      "stakeholder_banner" : {
+        "acf_key" : "point-of-interest_images",
+        "field_type" : "gallery"
+      },
+      "stakeholder_toll-free" : {
+        "acf_key" : "point-of-interest_toll-free",
+        "field_type" : "text"
+      },
+      "stakeholder_fax" : {
+        "acf_key" : "point-of-interest_fax",
+        "field_type" : "text"
+      },
+      "stakeholder_book" : {
+        "acf_key" : "point-of-interest_booking-url",
+        "field_type" : "text"
+      },
+      "stakeholder_email" : {
+        "acf_key" : "point-of-interest_email",
+        "field_type" : "text"
+      }
+    }
+  },
+  "eat" : {
+    "post_type" : "eat",
+    "taxonomy" : "place-to-eat",
+    "acf" : {
+      "eat_poi" : {
+        "acf_key" : "eat_poi",
+        "field_type" : "post_ref"
+      }
+    },
+    "incomplete_acf" : ["eat_deal"]
+  },
+  "meetings" : {
+    "post_type" : "meeting",
+    "taxonomy" : "meeting-type",
+    "acf" : {
+      "meeting_poi" : {
+        "acf_key" : "meeting_poi",
+        "field_type" : "post_ref"
+      },
+      "meetings_website" : {
+        "acf_key" : "meeting_website",
+        "field_type" : "text"
+      },
+      "meetings_linkedin" : {
+        "acf_key" : "meeting_linkedin",
+        "field_type" : "text"
+      },
+      "meetings_phone" : {
+        "acf_key" : "meeting_phone",
+        "field_type" : "text"
+      },
+      "meetings_email" : {
+        "acf_key" : "meeting_email",
+        "field_type" : "text"
+      },
+      "meeting_space_floorplan_pdf" : {
+        "acf_key" : "meeting_floorplan",
+        "field_type" : "attachment"
+      },
+      "meetings_square_footage" : {
+        "acf_key" : "meeting_sqft",
+        "field_type" : "text"
+      }
+    },
+    "incomplete_acf" : ["meetings_banner", "meetings_content", "meeting_space_highlight_stat_one-four", "meeting_space_highlight_value_one-four"]
+  },
+  "stay" : {
+    "post_type" : "stay",
+    "taxonomy" : "place",
+    "acf" : {
+      "stay_poi" : {
+        "acf_key" : "stay_poi",
+        "field_type" : "post_ref"
+      }
+    },
+    "incomplete_acf" : ["stakeholder_deal"]
+  },
+  "thing_to_do" : {
+    "post_type" : "thing-to-do",
+    "taxonomy" : "thing-to-do",
+    "acf" : {
+      "things_to_do_clone_pois" : {
+        "acf_key" : "thing-to-do_poi",
+        "field_type" : "post_ref"
+      }
+    },
+    "incomplete_acf" : ["thing_to_do_hide_map", "hiking-difficulty", "distance", "elevation-gain", "route-type"]
+  },
+  "weddings" : {
+    "post_type" : "wedding",
+    "taxonomy" : "wedding-type",
+    "acf" : {
+      "wedding_poi" : {
+        "acf_key" : "meeting_poi",
+        "field_type" : "post_ref"
+      },
+      "weddings_website" : {
+        "acf_key" : "meeting_website",
+        "field_type" : "text"
+      },
+      "weddings_linkedin" : {
+        "acf_key" : "meeting_linkedin",
+        "field_type" : "text"
+      },
+      "weddings_phone" : {
+        "acf_key" : "meeting_phone",
+        "field_type" : "text"
+      },
+      "weddings_email" : {
+        "acf_key" : "meeting_email",
+        "field_type" : "text"
+      },
+      "meeting_space_floorplan_pdf" : {
+        "acf_key" : "meeting_floorplan",
+        "field_type" : "attachment"
+      },
+      "meetings_square_footage" : {
+        "acf_key" : "meeting_sqft",
+        "field_type" : "text"
+      }
+    },
+    "incomplete_acf" : ["weddings_banner", "weddings_content", "wedding_space_highlight_stat_one-four", "wedding_space_highlight_value_one-four"]
+  }
+}

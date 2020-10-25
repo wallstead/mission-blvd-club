@@ -1,0 +1,21 @@
+{
+  "name": "mission-blvd-club",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "parcel src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/",
+    "build": "parcel build src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/ --no-minify",
+    "build-production": "parcel build src/*/** --public-url /wp-content/themes/mission-blvd-club/dist/",
+    "cleanup": "rm -rf .cache dist"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.27.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "regenerator-runtime": "^0.13.7",
+    "swiper": "^6.3.3"
+  }
+}

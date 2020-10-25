@@ -1,0 +1,10 @@
+# Theme Specific Items #
+########################
+
+# Parcel Cache #
+################
+*.cache/
+
+# No Dist files up in here #
+############################
+dist/

@@ -1,0 +1,243 @@
+@use "breakpoints"
+@use "typography"
+@use "colors"
+@use "full-width"
+
+$transitionTime: 0.25s
+
+.open-content
+  background-color: white
+  padding-bottom: 40px
+
+  @include breakpoints.large-screen
+    padding-bottom: 50px
+
+  &__constrained-container
+    margin: 0 auto
+    max-width: calc(2/3 * 100%)
+
+    & > .alignfull
+      @extend %full-width
+
+    $container-padding-mobile: 20px
+    $container-padding: 30px
+    $border-width: 20px
+
+    & > .alignwide
+      position: relative
+      left: calc(100% * -1/4)
+      width: calc(100vw - 2*#{$container-padding-mobile})
+
+      @include breakpoints.medium-screen
+        left: calc(100% * -1/4)
+        width: calc(100vw - 2*#{$container-padding})
+        max-width: calc(#{breakpoints.$max-content-width} - 2*#{$container-padding})
+
+      @include breakpoints.large-screen
+        width: calc(100vw - 2*#{$container-padding} - 2*#{$border-width})
+
+    .wp-block-group
+      &:not(:first-child)
+        margin-top: 40px
+
+        @include breakpoints.medium-screen
+          margin-top: 60px
+
+      &:not(:last-child)
+        margin-bottom: 40px
+
+        @include breakpoints.medium-screen
+          margin-bottom: 60px
+
+      &__inner-container
+
+      .wp-block-columns
+        margin-top: 0
+        margin-bottom: 0
+
+    .wp-block-columns
+      margin-top: 40px
+      margin-bottom: 40px
+
+      @include breakpoints.medium-screen
+        margin-top: 60px
+        margin-bottom: 60px
+        flex-wrap: nowrap
+
+      &.is-style-small-gutter
+        margin-top: 10px
+        margin-bottom: 10px
+
+        @include breakpoints.medium-screen
+          margin-top: 10px
+          margin-bottom: 10px
+
+        .wp-block-column
+          &:not(:first-child)
+            @include breakpoints.medium-screen
+              margin-left: 10px
+
+          &:not(:last-of-type)
+            margin-bottom: 10px
+
+            @include breakpoints.medium-screen
+              margin-bottom: 0
+
+        .color-block-cta
+          @include breakpoints.medium-screen
+            height: 100%
+
+          &__image
+            @include breakpoints.medium-screen
+              height: 100%
+
+        .circle-image-cta
+          @include breakpoints.medium-screen
+            height: 100%
+
+          &__image
+            @include breakpoints.medium-screen
+              height: 100%
+
+      &.alignfull
+        @include breakpoints.large-screen
+          border: 20px solid white
+          border-bottom: none
+          border-top: none
+          padding-top: 0
+
+    .wp-block-column
+
+      /* Override default styles for columns */
+      @media (max-width: breakpoints.$medium-screen-min)
+        flex-basis: 100% !important
+        margin-left: 0
+
+      &:not(:first-child)
+        @media (min-width: 782px)
+          margin-left: 0
+
+        @include breakpoints.medium-screen
+          margin-left: 50px
+
+      &:not(:last-of-type)
+        margin-bottom: 20px
+
+        @include breakpoints.medium-screen
+          margin-bottom: 0
+
+      & > *:last-child
+        margin-bottom: 0
+
+    .wp-block-quote
+      margin: 10px 0
+      position: relative
+      padding-left: 30px
+
+      &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        height: 100%
+        width: 2px
+        background-color: colors.$secondary-0
+
+      p
+
+        position: relative
+
+        &::before
+          content: '“'
+          display: block
+          color: colors.$secondary-0
+          font-size: 50px
+          line-height: 47px
+          margin-bottom: -20px
+
+      cite
+        display: block
+        font-style: normal
+        margin-top: 20px
+
+    .wp-block-pullquote
+      padding: 0
+      margin: 10px 0
+
+      blockquote
+        margin: 0
+        text-align: left
+
+      p
+
+        position: relative
+
+        &::before
+          content: '“'
+          display: block
+          color: colors.$secondary-0
+          font-size: 50px
+          line-height: 47px
+          margin-bottom: -20px
+
+      cite
+        display: block
+        font-style: normal
+        margin-top: 20px
+
+    .wp-block-button
+      &__link
+        background-color: transparent
+
+      &.is-style-outline
+        .wp-block-button__link
+
+    .wp-block-image
+      margin: 0 0 25px
+
+      img
+        vertical-align: bottom
+
+      figcaption
+        min-height: 26px
+        line-height: 25px
+        display: flex
+        align-items: center
+        border-left: 2px solid colors.$primary-1
+        padding-left: 20px
+
+        a
+          text-decoration: none
+          color: colors.$primary-1
+          position: relative
+
+          &::after
+            content: ''
+            display: inline-block
+            height: 10px
+            width: 7px
+            background-size: 7px 10px
+            background-repeat: no-repeat
+            position: relative
+            top: 1px
+            margin-left: 5px
+            transition: transform $transitionTime
+
+          &:hover
+            text-decoration: underline
+
+            &::after
+              transform: translateX(3px)
+
+    .wp-block-embed
+      margin: 0 0 25px
+
+    .wp-block-separator
+      margin: 40px 0
+      border: 0
+      position: relative
+      display: flex
+      justify-content: center
+
+      @include breakpoints.medium-screen
+        margin: 60px 0

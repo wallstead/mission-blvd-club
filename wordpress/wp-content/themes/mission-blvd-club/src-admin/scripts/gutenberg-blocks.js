@@ -1,0 +1,5 @@
+(function() {
+    wp.domReady( function() {
+
+    });
+})();

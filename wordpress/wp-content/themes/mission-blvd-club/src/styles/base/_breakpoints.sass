@@ -1,0 +1,43 @@
+// These breakpoints force mobile-first development
+
+// Tablet
+$medium-screen-min: 768px
+
+// Desktop
+$large-screen-min: 1024px
+
+// Max content width with padding
+$max-content-width: 1200px
+
+@mixin medium-screen
+  @media (min-width: #{$medium-screen-min})
+    @content
+
+@mixin large-screen
+  @media (min-width: #{$large-screen-min})
+    @content
+
+// The breakpoint for the weather widget is unique
+$weather-large-screen-min: 1350px
+
+@mixin weather-widget-large-screen
+  @media (min-width: #{$weather-large-screen-min})
+    @content
+
+
+
+// @TODO: consider splitting into another file or remove this todo
+
+.container
+  padding-left: 20px
+  padding-right: 20px
+  width: 100%
+  // background-color: white
+
+  @include medium-screen
+    margin: 0 auto
+    padding-left: 30px
+    padding-right: 30px
+
+  @include large-screen
+    max-width: $max-content-width
