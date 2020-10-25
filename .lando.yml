@@ -1,0 +1,4 @@
+name: mission-blvd-club
+recipe: wordpress
+config:
+  webroot: wordpress
