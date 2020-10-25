@@ -15,8 +15,31 @@
         width: 50px
         height: 50px
         background-color: pink
+        border-radius: 25px
+
+    &__main-nav-link-container
+        width: 20%
+        display: flex
+        justify-content: center
 
     &__main-nav-link
         @include typography.nav-link
         color: colors.$primary-2
         text-decoration: none
+        text-transform: uppercase
+
+        &::after
+            content: ''
+            display: block
+            margin-top: 5px
+            height: 2px
+            width: 30px
+            background-color: colors.$primary-2
+            transform: scaleX(0)
+            transform-origin: left center
+            transition: transform 0.25s
+
+        &:hover
+            &::after
+                transform: scaleX(1)
+            
