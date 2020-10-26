@@ -9,7 +9,11 @@
     text-transform: uppercase
     cursor: default
     position: relative
-    height: 30px
+    height: 40px
+    display: flex
+    align-items: flex-start
+    flex-direction: column
+    justify-content: center
 
     &::after
         content: ''
@@ -39,6 +43,21 @@
         @include breakpoints.medium-screen
             height: 100px
 
+    &__mobile-logo-container
+        width: 100%
+        display: flex
+        justify-content: center
+        padding-top: 20px
+
+        @include breakpoints.medium-screen
+            display: none
+
+    &__mobile-logo
+        width: 50px
+        height: 50px
+        background-color: pink
+        border-radius: 25px
+
     &__logo
         width: 50px
         height: 50px
@@ -46,7 +65,7 @@
         border-radius: 25px
 
     &__main-nav-link-container
-        width: 25%
+        width: auto
         display: flex
         justify-content: center
         position: relative
