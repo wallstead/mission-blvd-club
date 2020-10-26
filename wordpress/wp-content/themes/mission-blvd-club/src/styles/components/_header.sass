@@ -1,5 +1,30 @@
 @use '../base/colors'
 @use '../base/typography'
+@use '../base/breakpoints'
+
+%nav-link
+    @include typography.nav-link
+    color: colors.$primary-2
+    text-decoration: none
+    text-transform: uppercase
+    cursor: default
+    position: relative
+    height: 30px
+
+    &::after
+        content: ''
+        display: block
+        margin-top: 5px
+        height: 2px
+        width: 30px
+        background-color: colors.$primary-2
+        transform: scaleX(0)
+        transform-origin: left center
+        transition: transform 0.25s
+
+    &:hover
+        &::after
+            transform: scaleX(1)
 
 .header
     color: colors.$primary-2
@@ -9,7 +34,10 @@
         display: flex
         justify-content: space-between
         align-items: center
-        height: 100px
+        height: 60px
+
+        @include breakpoints.medium-screen
+            height: 100px
 
     &__logo
         width: 50px
@@ -18,28 +46,49 @@
         border-radius: 25px
 
     &__main-nav-link-container
-        width: 20%
+        width: 25%
         display: flex
         justify-content: center
+        position: relative
+
+        &.\--logo
+            display: none
+
+            @include breakpoints.medium-screen
+                display: flex
+
+        a
+            cursor: pointer
+
+        @include breakpoints.medium-screen
+            width: 20%
 
     &__main-nav-link
-        @include typography.nav-link
-        color: colors.$primary-2
-        text-decoration: none
-        text-transform: uppercase
+        @extend %nav-link
 
-        &::after
-            content: ''
-            display: block
-            margin-top: 5px
-            height: 2px
-            width: 30px
-            background-color: colors.$primary-2
-            transform: scaleX(0)
-            transform-origin: left center
-            transition: transform 0.25s
+        &:hover
+            .header__nav-dropdown
+                display: flex !important
+                transform: rotateX(0deg)
+                opacity: 1
+
+    &__nav-dropdown
+        position: absolute
+        left: -20px
+        top: 100%
+        background-color: colors.$primary-0
+        flex-direction: column
+        width: 100px
+        padding: 7.5px 20px
+        transform-origin: top center
+        transition: transform 0.35s, opacity 0.35s
+        transform: rotateX(90deg)
+        opacity: 0
+
+    &__dropdown-link
+        @extend %nav-link
 
         &:hover
             &::after
-                transform: scaleX(1)
+                transform: scaleX(0.5)
             

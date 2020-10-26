@@ -21,16 +21,28 @@ $logoIndex = $linkCount/2 ;
             <?php if (isset($mainNav) && !empty($mainNav)) : ?>
                 <?php for ($i=0; $i < $linkCount + 1; $i++): ?>
                     <?php if ($i == $logoIndex): ?>
-                        <div class="header__main-nav-link-container">
-                            <a href="#" class="header__main-nav-link"><div class="header__logo"></div></a>
+                        <div class="header__main-nav-link-container --logo">
+                            <a href="#" class=""><div class="header__logo"></div></a>
                         </div>
                     <?php elseif ($i < $logoIndex): ?>
                         <div class="header__main-nav-link-container">
                             <a href="#" class="header__main-nav-link"><?= $mainNav[$i]->title; ?></a>
                         </div>
                     <?php elseif ($i > $logoIndex): ?>
-                        <div class="header__main-nav-link-container">
-                            <a href="#" class="header__main-nav-link"><?= $mainNav[$i-1]->title; ?></a>
+                        <div class="header__main-nav-link-container"> 
+                            <?php if (!empty($mainNav[$i-1]->children)): ?>
+                                <div href="#" class="header__main-nav-link">
+                                    <?= $mainNav[$i-1]->title; ?>
+                                    <div class="header__nav-dropdown">
+                                        <?php foreach ($mainNav[$i-1]->children as $child) : ?>
+                                            <a href="#" class="header__dropdown-link"><?= $child->title; ?></a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                
+                            <?php else: ?>
+                                <a href="#" class="header__main-nav-link"><?= $mainNav[$i-1]->title; ?></a>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
                 <?php endfor; ?>
