@@ -1,4 +1,35 @@
+@use '../base/colors'
+@use '../base/typography'
+@use '../base/breakpoints'
+
 .show-card
+
+    &__link
+        text-decoration: none
+        color: inherit
+
+        &:hover
+            .show-card__title
+                text-shadow: 2px 2px colors.$fourthary-0
+
+            .show-card__image
+                transform: scale(1.1)
+
+    &__inner-container
+        display: flex
+        flex-direction: column
+        
     &__image
-        border: 3px solid black
         vertical-align: bottom
+        transition: transform 0.3s
+        transform: scale(1.01)
+
+    &__image-container
+        border: 3px solid black
+        margin-bottom: 10px
+        overflow: hidden
+
+    &__title
+        @include typography.card-title
+        text-shadow: 2px 2px white
+        transition: text-shadow 0.3s

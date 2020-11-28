@@ -1,5 +1,5 @@
 <?php
-    /* Template Name: Homepage */
+/* Template Name: Homepage */
 ?>
 <?php get_header(); ?>
 <main id="content" class="js-body">
@@ -16,40 +16,124 @@
                         </div>
                         <div class="listing-hero__listing">
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Pleasing Sounds for Human Ears</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Beneath the Surface</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Lost in Japan</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Still Spinning</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">The Devil's Hour</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Sustainable Chatter</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Matters of Life</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Uppity</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Cinesthesia</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Ears to the Ground</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">Sinister Tales</p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="show-card">
-                                <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
+                                <a href="#" class="show-card__link">
+                                    <div class="show-card__inner-container">
+                                        <picture class="show-card__image-container">
+                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
+                                        </picture>
+                                        <p class="show-card__title">4 on the Floor</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
