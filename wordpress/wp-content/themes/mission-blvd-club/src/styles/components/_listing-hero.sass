@@ -30,14 +30,21 @@
         &::before
             content: attr(data-bg-title)
             position: absolute
-            left: -25px
             top: -25px
+            left: -25px
             color: transparent
             -webkit-text-stroke: 2px colors.$fourthary-0
         
+        // &::after
+        //     content: attr(data-bg-title)
+        //     position: absolute
+        //     top: 20px
+        //     color: transparent
+        //     -webkit-text-stroke: 2px colors.$fourthary-0
+        
     &__description
         @include typography.listing-description
-        color: colors.$secondary-2
+        color: colors.$secondary-0
 
     &__listing
         grid-column-start: 2

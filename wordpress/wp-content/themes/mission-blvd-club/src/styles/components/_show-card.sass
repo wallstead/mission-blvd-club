@@ -10,7 +10,7 @@
 
         &:hover
             .show-card__title
-                text-shadow: 2px 2px colors.$fourthary-0
+                text-shadow: -0.5px -0.5px colors.$fourthary-0, 0.5px 0.5px colors.$fourthary-0, 0px 0px transparent 
 
             .show-card__image
                 transform: scale(1.1)
@@ -28,8 +28,9 @@
         border: 3px solid black
         margin-bottom: 10px
         overflow: hidden
+        box-shadow: -7px -7px colors.$fourthary-1 // teal
 
     &__title
         @include typography.card-title
-        text-shadow: 2px 2px white
+        text-shadow: -5px -5px transparent, 5px 5px transparent, 2px 2px white
         transition: text-shadow 0.3s
