@@ -1,8 +1,40 @@
 @use '../base/colors'
 @use '../base/typography'
+@use '../base/breakpoints'
 
-.footer
-    color: colors.$primary-2
+.footer 
+    background-color: colors.$primary-0
+    position: relative
 
-    p
-        @include typography.nav-link
+    &__container
+        display: flex
+        flex-direction: column
+        padding-top: 50px
+        padding-bottom: 50px
+        position: relative
+
+        @include breakpoints.medium-screen
+            flex-direction: row
+
+    &__section
+        width: 50%
+        color: white
+        padding: 10px 0
+
+    &__section-title
+        @include typography.footer-section-title
+        color: colors.$secondary-2
+        margin-bottom: 10px
+
+    &__section-links
+        width: fit-content
+        display: grid
+        justify-content: start
+        grid-template-columns: 1fr 1fr 1fr
+        column-gap: 5px
+        row-gap: 5px
+
+    &__external-link-item
+        width: 50px
+        height: 50px
+        background-color: white

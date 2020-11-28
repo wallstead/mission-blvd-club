@@ -4,9 +4,8 @@
 
 %nav-link
     @include typography.nav-link
-    color: colors.$primary-2
+    color: colors.$secondary-2
     text-decoration: none
-    text-transform: uppercase
     cursor: default
     position: relative
     height: 40px
@@ -31,7 +30,10 @@
             transform: scaleX(1)
 
 .header
-    color: colors.$primary-2
+    position: fixed
+    background-color: colors.$primary-0
+    width: 100%
+    z-index: 100
 
     &__nav 
         width: 100%
@@ -88,7 +90,8 @@
         &:hover
             .header__nav-dropdown
                 display: flex !important
-                transform: rotateX(0deg)
+                transform: translateY(0)
+                pointer-events: all
                 opacity: 1
 
     &__nav-dropdown
@@ -97,12 +100,13 @@
         top: 100%
         background-color: colors.$primary-0
         flex-direction: column
-        width: 100px
-        padding: 7.5px 20px
+        padding: 10px 20px
         transform-origin: top center
-        transition: transform 0.35s, opacity 0.35s
-        transform: rotateX(90deg)
+        transition: transform 0.3s, opacity 0.25s
+        transform: translateY(-10px)
+        pointer-events: none
         opacity: 0
+        
 
     &__dropdown-link
         @extend %nav-link
