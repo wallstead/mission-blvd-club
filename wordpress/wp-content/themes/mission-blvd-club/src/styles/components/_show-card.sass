@@ -15,22 +15,73 @@
             .show-card__image
                 transform: scale(1.1)
 
+        &:active
+            .show-card__title
+                text-shadow: -5px -5px transparent, 5px 5px transparent, 2px 2px white
+
+            .show-card__image
+                transform: scale(1.01)
+
     &__inner-container
         display: flex
         flex-direction: column
+        
         
     &__image
         vertical-align: bottom
         transition: transform 0.3s
         transform: scale(1.01)
+        
 
     &__image-container
         border: 3px solid black
         margin-bottom: 10px
         overflow: hidden
         box-shadow: -7px -7px colors.$fourthary-1 // teal
+        background-color: black
 
     &__title
         @include typography.card-title
         text-shadow: -5px -5px transparent, 5px 5px transparent, 2px 2px white
         transition: text-shadow 0.3s
+
+    &__hosts-container
+        display: flex
+        align-items: center
+        margin-top: 10px
+
+    &__hosts-title
+        @include typography.card-meta-title
+        margin-right: 7px
+        text-shadow: 2px 2px white
+
+    &__hosts-collection
+        display: flex
+
+        &:hover
+            .show-card__host-container
+                &:nth-of-type(2)
+                    transform: translateX(2.5px) 
+                &:nth-of-type(3)
+                    transform: translateX(5px)
+
+    &__host-container 
+        transition: transform 0.3s
+        
+        &:nth-of-type(2)
+            transform: translateX(-10px) 
+        &:nth-of-type(3)
+            transform: translateX(-20px)
+
+    &__host-link
+        &:hover
+            .show-card__host-image
+                border-color: colors.$fourthary-0
+
+    &__host-image
+        vertical-align: bottom
+        width: 35px
+        height: 35px
+        border-radius: 17.5px
+        border: 2px solid black
+        transition: border-color 0.3s
