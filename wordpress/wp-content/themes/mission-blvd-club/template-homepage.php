@@ -10,7 +10,9 @@
                     <div class="listing-hero__inner-container container">
                         <div class="listing-hero__info-container">
                             <div class="listing-hero__info animate__animated animate__fadeIn">
-                                <h1 class="listing-hero__title" data-bg-title="Shows">Shows</h1>
+                                <div class="listing-hero__title-container">
+                                    <h1 class="listing-hero__title" data-bg-title="Shows">Shows</h1>
+                                </div>
                                 <p class="listing-hero__description">Boulevard Heights Radio dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br><br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
                             </div>
                         </div>
@@ -22,8 +24,10 @@
                                             <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
                                         </picture>
                                         <p class="show-card__title">Pleasing Sounds for Human Ears</p>
+                                        <p class="show-card__description">Hip-hop classics. Lorem ipsum.</p>
                                     </div>
                                 </a>
+                                
                                 <div class="show-card__hosts-container">
                                     <p class="show-card__hosts-title">Hosts:</p>
                                     <div class="show-card__hosts-collection">
@@ -52,6 +56,7 @@
                                             <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
                                         </picture>
                                         <p class="show-card__title">Beneath the Surface</p>
+                                        <p class="show-card__description">Hip-hop classics. Lorem ipsum dolor.</p>
                                     </div>
                                 </a>
                                 <div class="show-card__hosts-container">

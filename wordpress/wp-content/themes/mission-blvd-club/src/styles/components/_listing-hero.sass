@@ -11,30 +11,48 @@
     &__info
         position: sticky
         top: 182px
-        
 
     &__inner-container
         display: grid
-        grid-template-columns: 1fr 2fr
-        column-gap: 65px 
+        grid-template-columns: 1fr
+        row-gap: 40px 
+
+        @include breakpoints.medium-screen
+            grid-template-columns: 1fr 2fr
+            column-gap: 65px 
+
+    &__title-container
+        display: flex
+        justify-content: center
+        padding: 15px 0
+        
+        @include breakpoints.medium-screen
+            justify-content: flex-start
 
     &__title
         grid-column-start: 1
-        grid-column-end: 1
+        grid-column-end: 2
         position: relative
-        @include typography.listing-title
+        @include typography.listing-title-mobile
         color: colors.$fourthary-0
         display: flex
         align-items: center
+        text-align: center
 
         &::before
             content: attr(data-bg-title)
             position: absolute
-            top: -25px
-            left: -25px
+            top: -17px
+            left: -17px
             color: transparent
             -webkit-text-stroke: 2px colors.$fourthary-0
-        
+
+            @include breakpoints.medium-screen
+                top: -25px
+                left: -25px
+
+        @include breakpoints.medium-screen
+            @include typography.listing-title
         // &::after
         //     content: attr(data-bg-title)
         //     position: absolute
@@ -43,14 +61,28 @@
         //     -webkit-text-stroke: 2px colors.$fourthary-0
         
     &__description
-        @include typography.listing-description
+        @include typography.body-copy-small
         color: colors.$secondary-0
+        max-width: 350px
+        margin-left: auto
+        margin-right: auto
+
+        // @include breakpoints.medium-screen
+        //     @include typography.listing-description
 
     &__listing
-        grid-column-start: 2
-        grid-column-end: 3
+        grid-column-start: 1
+        grid-column-end: 2
         display: grid
-        grid-template-columns: 1fr 1fr 1fr
-        gap: 25px
+        grid-template-columns: 1fr 1fr
+        column-gap: 25px
+        row-gap: 35px
+
+        @include breakpoints.medium-screen
+            grid-column-start: 2
+            grid-column-end: 3
+
+        @include breakpoints.large-screen
+            grid-template-columns: 1fr 1fr 1fr
 
     

@@ -45,33 +45,53 @@
         text-shadow: -5px -5px transparent, 5px 5px transparent, 2px 2px white
         transition: text-shadow 0.3s
 
+    &__description
+        @include typography.body-copy-small
+        margin-top: 10px
+
     &__hosts-container
         display: flex
-        align-items: center
+        flex-direction: column
         margin-top: 10px
+
+        @include breakpoints.medium-screen
+            flex-direction: row
+            align-items: center
 
     &__hosts-title
         @include typography.card-meta-title
         margin-right: 7px
         text-shadow: 2px 2px white
+        margin-bottom: 5px
+
+        @include breakpoints.medium-screen
+            margin-bottom: 0
 
     &__hosts-collection
         display: flex
 
-        &:hover
-            .show-card__host-container
-                &:nth-of-type(2)
-                    transform: translateX(2.5px) 
-                &:nth-of-type(3)
-                    transform: translateX(5px)
+        @include breakpoints.medium-screen
+            &:hover
+                .show-card__host-container
+                    &:nth-of-type(2)
+                        transform: translateX(2.5px) 
+                    &:nth-of-type(3)
+                        transform: translateX(5px)
 
     &__host-container 
+        overflow-x: scroll
         transition: transform 0.3s
-        
+
         &:nth-of-type(2)
-            transform: translateX(-10px) 
+            transform: translateX(2.5px) 
         &:nth-of-type(3)
-            transform: translateX(-20px)
+            transform: translateX(5px)
+
+        @include breakpoints.medium-screen
+            &:nth-of-type(2)
+                transform: translateX(-10px) 
+            &:nth-of-type(3)
+                transform: translateX(-20px)
 
     &__host-link
         &:hover
