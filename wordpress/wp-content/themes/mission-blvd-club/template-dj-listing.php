@@ -34,8 +34,6 @@
                                     <?php 
                                         $dj_fields = get_fields();
                                         $dj_shows = $dj_fields["dj_shows"];
-
-                                        // var_dump($dj_shows);
                                     ?>
                                     <div class="detail-card animate__animated animate__fadeIn --dj">
                                         <a href="<?= get_the_permalink() ?>" class="detail-card__link">
