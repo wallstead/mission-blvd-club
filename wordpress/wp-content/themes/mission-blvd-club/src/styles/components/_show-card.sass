@@ -48,6 +48,7 @@
     &__description
         @include typography.body-copy-small
         margin-top: 10px
+        text-shadow: 2px 2px white
 
     &__hosts-container
         display: flex
@@ -74,9 +75,9 @@
             &:hover
                 .show-card__host-container
                     &:nth-of-type(2)
-                        transform: translateX(2.5px) 
+                        transform: translateX(2.5px) rotateZ(0)
                     &:nth-of-type(3)
-                        transform: translateX(5px)
+                        transform: translateX(5px) rotateZ(0)
 
     &__host-container 
         overflow-x: scroll
@@ -89,9 +90,9 @@
 
         @include breakpoints.medium-screen
             &:nth-of-type(2)
-                transform: translateX(-10px) 
+                transform: translateX(-10px) rotateZ(-15deg)
             &:nth-of-type(3)
-                transform: translateX(-20px)
+                transform: translateX(-20px) rotateZ(-30deg)
 
     &__host-link
         &:hover
@@ -105,3 +106,4 @@
         border-radius: 17.5px
         border: 2px solid black
         transition: border-color 0.3s
+        background-color: black

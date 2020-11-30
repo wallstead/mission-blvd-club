@@ -8,7 +8,12 @@
     $prefix = 'listing_';
     
     $description = $fields[$prefix . 'description'];
-?>
+
+    // get the shows
+    $query = new WP_Query( array(
+        'post_type' => 'show',
+    ) );
+?>  
 <main id="content" class="js-body">
     <div class="open-content">
         <div class="open-content__container container">
@@ -24,369 +29,49 @@
                             </div>
                         </div>
                         <div class="listing-hero__listing">
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Pleasing Sounds for Human Ears</p>
-                                        <p class="show-card__description">Hip-hop classics. Lorem ipsum.</p>
-                                    </div>
-                                </a>
-                                
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Beneath the Surface</p>
-                                        <p class="show-card__description">Hip-hop classics. Lorem ipsum dolor.</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
+                            <?php if ( $query->have_posts() ) : ?>
+                                <?php while( $query->have_posts() ) : $query->the_post() ?>
+                                    <?php 
+                                        $dj_query = new WP_Query( array(
+                                            'post_type' => 'dj',
+                                            'meta_query' => array(
+                                                array(
+                                                    'key' => 'dj_shows', // name of custom field
+                                                    'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+                                                    'compare' => 'LIKE'
+                                                )
+                                            )
+                                        ) );
+                                    ?>
+                                    <div class="show-card animate__animated animate__fadeIn">
+                                        <a href="<?= get_the_permalink() ?>" class="show-card__link">
+                                            <div class="show-card__inner-container">
+                                                <picture class="show-card__image-container">
+                                                    <img class="show-card__image" src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= the_title() ?>">
+                                                </picture>
+                                                <p class="show-card__title"><?= the_title() ?></p>
+                                                <?php if (!empty(get_the_excerpt())): ?>
+                                                    <p class="show-card__description"><?= get_the_excerpt() ?></p>
+                                                <?php endif; ?>
+                                            </div>
+                                        </a>
+                                        <div class="show-card__hosts-container">
+                                            <p class="show-card__hosts-title">Host<?= $dj_query->post_count > 1 ? 's' : '' ?>:</p>
+                                            <div class="show-card__hosts-collection">
+                                                <?php if ( $dj_query->have_posts() ) : ?>
+                                                    <?php while( $dj_query->have_posts() ) : $dj_query->the_post() ?>
+                                                        <div class="show-card__host-container">
+                                                            <a href="<?= get_the_permalink() ?>" class="show-card__host-link">
+                                                                <img class="show-card__host-image" src="<?= get_the_post_thumbnail_url(null, 'thumbnail') ?>" alt="<?= the_title() ?>" title="<?= the_title() ?>">
+                                                            </a>
+                                                        </div>
+                                                    <?php endwhile ?>
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Lost in Japan</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Still Spinning</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">The Devil's Hour</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Sustainable Chatter</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Matters of Life</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Uppity</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Cinesthesia</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.50.54-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Ears to the Ground</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.54.16-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">Sinister Tales</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="show-card animate__animated animate__fadeIn">
-                                <a href="#" class="show-card__link">
-                                    <div class="show-card__inner-container">
-                                        <picture class="show-card__image-container">
-                                            <img class="show-card__image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-4.55.49-PM.png" alt="">
-                                        </picture>
-                                        <p class="show-card__title">4 on the Floor</p>
-                                    </div>
-                                </a>
-                                <div class="show-card__hosts-container">
-                                    <p class="show-card__hosts-title">Hosts:</p>
-                                    <div class="show-card__hosts-collection">
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy1" title="Guy1">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy2" title="Guy2">
-                                            </a>
-                                        </div>
-                                        <div class="show-card__host-container">
-                                            <a href="#" class="show-card__host-link">
-                                                <img class="show-card__host-image" src="/wp-content/uploads/2020/11/Screen-Shot-2020-11-27-at-3.56.11-PM-e1606525247493.png" alt="Guy3" title="Guy3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <?php endwhile ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </section>

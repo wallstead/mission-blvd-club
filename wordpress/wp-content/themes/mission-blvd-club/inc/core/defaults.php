@@ -9,6 +9,9 @@ add_action('after_setup_theme', function() {
 
     // Enable featured images (post thumbnails)
     add_theme_support('post-thumbnails');
+    update_option( 'thumbnail_size_w', 70 );
+    update_option( 'thumbnail_size_h', 70 );
+    update_option( 'thumbnail_crop', 1 );
 
     // For wide gutenberg blocks
     add_theme_support( 'align-wide' );

@@ -16,7 +16,6 @@ add_action('init', function() {
             'title',
             'thumbnail',
             'excerpt',
-            'page-attributes'
         ],
     ]);
 });
