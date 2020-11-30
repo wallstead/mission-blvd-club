@@ -11,13 +11,12 @@ add_action('init', function() {
         ],
         'show_ui' => true,
         'show_in_rest' => true,
-        'menu_icon' => 'dashicons-groups',
+        'menu_icon' => 'dashicons-microphone',
         'supports' => [
             'title',
             'thumbnail',
             'excerpt',
             'page-attributes'
         ],
-        'taxonomies' => ['place-to-eat']
     ]);
 });
