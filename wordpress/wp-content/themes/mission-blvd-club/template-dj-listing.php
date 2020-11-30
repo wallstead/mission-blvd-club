@@ -18,54 +18,49 @@
     <div class="open-content">
         <div class="open-content__container container">
             <div class="open-content__constrained-container">
-                <section class="listing-hero">
-                    <div class="listing-hero__inner-container container">
-                        <div class="listing-hero__info-container">
-                            <div class="listing-hero__info animate__animated animate__fadeIn">
-                                <div class="listing-hero__title-container">
-                                    <h1 class="listing-hero__title" data-bg-title="<?= get_the_title() ?>"><?= get_the_title() ?></h1>
+                <section class="listing --dj">
+                    <div class="listing__inner-container container">
+                        <div class="listing__info-container">
+                            <div class="listing__info animate__animated animate__fadeIn">
+                                <div class="listing__title-container">
+                                    <h1 class="listing__title" data-bg-title="<?= get_the_title() ?>"><?= get_the_title() ?></h1>
                                 </div>
-                                <div class="listing-hero__description"><?= $description ?></div>
+                                <div class="listing__description"><?= $description ?></div>
                             </div>
                         </div>
-                        <div class="listing-hero__listing">
+                        <div class="listing__listing">
                             <?php if ( $query->have_posts() ) : ?>
                                 <?php while( $query->have_posts() ) : $query->the_post() ?>
                                     <?php 
-                                        $dj_query = new WP_Query( array(
-                                            'post_type' => 'dj',
-                                            'meta_query' => array(
-                                                array(
-                                                    'key' => 'dj_shows', // name of custom field
-                                                    'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
-                                                    'compare' => 'LIKE'
-                                                )
-                                            )
-                                        ) );
+                                        $dj_fields = get_fields();
+                                        $dj_shows = $dj_fields["dj_shows"];
+
+                                        // var_dump($dj_shows);
                                     ?>
-                                    <div class="show-card animate__animated animate__fadeIn">
-                                        <a href="<?= get_the_permalink() ?>" class="show-card__link">
-                                            <div class="show-card__inner-container">
-                                                <picture class="show-card__image-container">
-                                                    <img class="show-card__image" src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= the_title() ?>">
+                                    <div class="detail-card animate__animated animate__fadeIn --dj">
+                                        <a href="<?= get_the_permalink() ?>" class="detail-card__link">
+                                            <div class="detail-card__inner-container">
+                                                <picture class="detail-card__image-container">
+                                                    <img class="detail-card__image" src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= the_title() ?>">
                                                 </picture>
-                                                <p class="show-card__title"><?= the_title() ?></p>
+                                                <p class="detail-card__title"><?= the_title() ?></p>
                                                 <?php if (!empty(get_the_excerpt())): ?>
-                                                    <p class="show-card__description"><?= get_the_excerpt() ?></p>
+                                                    <p class="detail-card__description"><?= get_the_excerpt() ?></p>
                                                 <?php endif; ?>
                                             </div>
                                         </a>
-                                        <div class="show-card__hosts-container">
-                                            <p class="show-card__hosts-title">Host<?= $dj_query->post_count > 1 ? 's' : '' ?>:</p>
-                                            <div class="show-card__hosts-collection">
-                                                <?php if ( $dj_query->have_posts() ) : ?>
-                                                    <?php while( $dj_query->have_posts() ) : $dj_query->the_post() ?>
-                                                        <div class="show-card__host-container">
-                                                            <a href="<?= get_the_permalink() ?>" class="show-card__host-link">
-                                                                <img class="show-card__host-image" src="<?= get_the_post_thumbnail_url(null, 'thumbnail') ?>" alt="<?= the_title() ?>" title="<?= the_title() ?>">
+                                        <div class="detail-card__pairings-container">
+                                            <p class="detail-card__pairings-title">Show<?= count($dj_shows) > 1 ? 's' : '' ?>:</p>
+                                            <div class="detail-card__pairings-collection">
+                                                <?php if (!empty($dj_shows)) : ?>
+                                                    <?php foreach($dj_shows as $show): ?>
+                                                        <div class="detail-card__pairing-container">
+                                                            <a href="<?= get_the_permalink($show->ID) ?>" class="detail-card__pairing-link">
+                                                                <img class="detail-card__pairing-image" src="<?= get_the_post_thumbnail_url($show->ID, 'thumbnail') ?>" alt="<?= the_title($show->ID) ?>" title="<?= the_title($show->ID) ?>">
                                                             </a>
                                                         </div>
-                                                    <?php endwhile ?>
+                                                    <?php endforeach ?>
+                                                    <?php wp_reset_postdata(); ?>
                                                 <?php endif; ?>
                                             </div>
                                         </div>

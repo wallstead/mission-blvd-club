@@ -2,24 +2,24 @@
 @use '../base/typography'
 @use '../base/breakpoints'
 
-.show-card
+.detail-card
 
     &__link
         text-decoration: none
         color: inherit
 
         &:hover
-            .show-card__title
+            .detail-card__title
                 text-shadow: -0.5px -0.5px colors.$fourthary-0, 0.5px 0.5px colors.$fourthary-0, 0px 0px transparent 
 
-            .show-card__image
+            .detail-card__image
                 transform: scale(1.1)
 
         &:active
-            .show-card__title
+            .detail-card__title
                 text-shadow: -5px -5px transparent, 5px 5px transparent, 2px 2px white
 
-            .show-card__image
+            .detail-card__image
                 transform: scale(1.01)
 
     &__inner-container
@@ -31,7 +31,10 @@
         vertical-align: bottom
         transition: transform 0.3s
         transform: scale(1.01)
-        
+        position: absolute
+        height: 100%
+        width: 100%
+        object-fit: cover
 
     &__image-container
         border: 3px solid black
@@ -39,6 +42,13 @@
         overflow: hidden
         box-shadow: -7px -7px colors.$fourthary-1 // teal
         background-color: black
+        position: relative
+        
+        &::before 
+            content: ""
+            padding-bottom: 100%
+            display: inline-block
+            vertical-align: top
 
     &__title
         @include typography.card-title
@@ -50,7 +60,7 @@
         margin-top: 10px
         text-shadow: 2px 2px white
 
-    &__hosts-container
+    &__pairings-container
         display: flex
         flex-direction: column
         margin-top: 10px
@@ -59,7 +69,7 @@
             flex-direction: row
             align-items: center
 
-    &__hosts-title
+    &__pairings-title
         @include typography.card-meta-title
         margin-right: 7px
         text-shadow: 2px 2px white
@@ -68,18 +78,18 @@
         @include breakpoints.medium-screen
             margin-bottom: 0
 
-    &__hosts-collection
+    &__pairings-collection
         display: flex
 
         @include breakpoints.medium-screen
             &:hover
-                .show-card__host-container
+                .detail-card__pairing-container
                     &:nth-of-type(2)
                         transform: translateX(2.5px) rotateZ(0)
                     &:nth-of-type(3)
                         transform: translateX(5px) rotateZ(0)
 
-    &__host-container 
+    &__pairing-container 
         overflow-x: scroll
         transition: transform 0.3s
 
@@ -94,12 +104,12 @@
             &:nth-of-type(3)
                 transform: translateX(-20px) rotateZ(-30deg)
 
-    &__host-link
+    &__pairing-link
         &:hover
-            .show-card__host-image
+            .detail-card__pairing-image
                 border-color: colors.$fourthary-0
 
-    &__host-image
+    &__pairing-image
         vertical-align: bottom
         width: 35px
         height: 35px
@@ -107,3 +117,17 @@
         border: 2px solid black
         transition: border-color 0.3s
         background-color: black
+
+    &.\--dj
+        .detail-card__image-container
+            box-shadow: -7px -7px colors.$fourthary-3
+
+        .detail-card__link
+            &:hover
+                .detail-card__title
+                    text-shadow: -0.5px -0.5px colors.$fourthary-2, 0.5px 0.5px colors.$fourthary-2, 0px 0px transparent 
+
+        .detail-card__pairing-link
+            &:hover
+                .detail-card__pairing-image
+                    border-color: colors.$fourthary-2

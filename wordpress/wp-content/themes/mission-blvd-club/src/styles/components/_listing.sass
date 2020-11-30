@@ -3,7 +3,7 @@
 @use '../base/breakpoints'
 @use '../base/full-width'
 
-.listing-hero
+.listing
     @extend %full-width
 
     &__info-container
@@ -83,4 +83,9 @@
         @include breakpoints.large-screen
             grid-template-columns: 1fr 1fr 1fr
 
-    
+    &.\--dj
+        .listing__title
+            color: colors.$fourthary-2
+
+            &::before
+                -webkit-text-stroke: 2px colors.$fourthary-2
