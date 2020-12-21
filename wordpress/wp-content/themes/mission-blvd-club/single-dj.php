@@ -16,24 +16,26 @@
                                 <div class="detail__title-container">
                                     <h1 class="detail__title" data-bg-title="<?= get_the_title() ?>"><?= get_the_title() ?></h1>
                                 </div>
-                                <picture class="detail__image-container">
-                                    <img class="detail__image" src="<?= get_the_post_thumbnail_url(null, 'medium_large') ?>" alt="<?= the_title() ?>">
-                                </picture>
+                                <div class="detail__more-info">
+                                    <picture class="detail__image-container">
+                                        <img class="detail__image" src="<?= get_the_post_thumbnail_url(null, 'medium_large') ?>" alt="<?= the_title() ?>">
+                                    </picture>
 
-                                <?php if (!empty($socials)) : ?>
-                                    <div class="detail__socials">
-                                        <?php foreach ($socials as $social_name => $social_link) : ?>
-                                            <?php $clean_social_name = str_replace('dj_', '', $social_name); ?>
-                                            <?php if (!empty($social_link)) : ?>
-                                                <a href="<?= $social_link; ?>" class="detail__social-link" title="<?= $clean_social_name; ?>">
-                                                    <div class="detail__social-icon">
-                                                        <i class="fab fa-<?= $clean_social_name; ?>"></i>
-                                                    </div>
-                                                </a>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
+                                    <?php if (!empty($socials)) : ?>
+                                        <div class="detail__socials">
+                                            <?php foreach ($socials as $social_name => $social_link) : ?>
+                                                <?php $clean_social_name = str_replace('dj_', '', $social_name); ?>
+                                                <?php if (!empty($social_link)) : ?>
+                                                    <a href="<?= $social_link; ?>" class="detail__social-link" title="<?= $clean_social_name; ?>">
+                                                        <div class="detail__social-icon">
+                                                            <i class="fab fa-<?= $clean_social_name; ?>"></i>
+                                                        </div>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                         <div class="detail__details">
