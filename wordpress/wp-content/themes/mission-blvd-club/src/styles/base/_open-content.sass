@@ -59,7 +59,10 @@ $transitionTime: 0.25s
 
     &.\--bottom-fade
       &::before, &::after
-        background: linear-gradient(150deg, transparent 50%, colors.$tertiary-0)
+        background: linear-gradient(150deg, transparent, colors.$tertiary-0)
+
+        @include breakpoints.large-screen
+          background: linear-gradient(150deg, transparent 50%, colors.$tertiary-0)
 
   &__constrained-container
     margin: 0 auto

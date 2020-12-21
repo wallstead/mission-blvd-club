@@ -15,6 +15,7 @@ add_action('init', function() {
         'supports' => [
             'title',
             'thumbnail',
+            'editor',
             'excerpt',
         ],
     ]);

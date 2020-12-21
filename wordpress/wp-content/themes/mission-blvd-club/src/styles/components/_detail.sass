@@ -109,13 +109,15 @@
         display: flex
         align-items: center
         margin-right: 7px
+        margin-top: 3.5px
+        margin-bottom: 3.5px
 
         &:hover 
             .detail__associated-image
-                border-color: colors.$fourthary-2
+                border-color: colors.$fourthary-0
 
             .detail__associated-name-only
-                text-shadow: -0.5px -0.5px colors.$fourthary-2, 0.5px 0.5px colors.$fourthary-2, 0px 0px transparent 
+                text-shadow: -0.5px -0.5px colors.$fourthary-0, 0.5px 0.5px colors.$fourthary-0, 0px 0px transparent 
 
     &__associated-link
         text-decoration: none
@@ -142,3 +144,27 @@
 
     &__content
         
+    &.\--show
+
+        .detail__title
+            color: colors.$fourthary-0
+            &::before
+                -webkit-text-stroke: 2px colors.$fourthary-0
+
+        .detail__image
+            box-shadow: -7px -7px colors.$fourthary-1
+
+        .detail__social-icon
+            border-color: colors.$fourthary-1
+
+            &:hover
+                background-color: colors.$fourthary-0
+                border-color: colors.$fourthary-0
+        
+        .detail__associated
+            &:hover
+                .detail__associated-image
+                    border-color: colors.$fourthary-2
+
+                .detail__associated-name-only
+                    text-shadow: -0.5px -0.5px colors.$fourthary-2, 0.5px 0.5px colors.$fourthary-2, 0px 0px transparent

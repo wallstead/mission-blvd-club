@@ -50,7 +50,7 @@
                                                     <img class="detail-card__image" src="<?= get_the_post_thumbnail_url(null, 'medium_large') ?>" alt="<?= the_title() ?>">
                                                 </picture>
                                                 <p class="detail-card__title"><?= the_title() ?></p>
-                                                <?php if (!empty(get_the_excerpt())): ?>
+                                                <?php if (has_excerpt()): ?>
                                                     <p class="detail-card__description"><?= get_the_excerpt() ?></p>
                                                 <?php endif; ?>
                                             </div>
