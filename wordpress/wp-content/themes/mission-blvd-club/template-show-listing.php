@@ -47,7 +47,7 @@
                                         <a href="<?= get_the_permalink() ?>" class="detail-card__link">
                                             <div class="detail-card__inner-container">
                                                 <picture class="detail-card__image-container">
-                                                    <img class="detail-card__image" src="<?= get_the_post_thumbnail_url(null, 'medium') ?>" alt="<?= the_title() ?>">
+                                                    <img class="detail-card__image" src="<?= get_the_post_thumbnail_url(null, 'medium_large') ?>" alt="<?= the_title() ?>">
                                                 </picture>
                                                 <p class="detail-card__title"><?= the_title() ?></p>
                                                 <?php if (!empty(get_the_excerpt())): ?>
