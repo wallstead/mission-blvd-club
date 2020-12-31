@@ -1,4 +1,4 @@
-import { Swiper, Navigation, Pagination } from 'swiper/js/swiper.esm.js';
+import { Swiper } from 'swiper/swiper.esm.js';
 
 export default class SliderHero {
   constructor(sliderHeroElement) {
