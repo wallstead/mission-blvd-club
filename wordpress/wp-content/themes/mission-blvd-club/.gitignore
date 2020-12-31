@@ -1,10 +1,5 @@
-# Theme Specific Items #
-########################
-
-# Parcel Cache #
-################
-*.cache/
-
-# No Dist files up in here #
-############################
+# things we don't need in git #
+node_modules/
+.DS_Store
+.cache/
 dist/

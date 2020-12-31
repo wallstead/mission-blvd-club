@@ -55,4 +55,18 @@ $logoIndex = $linkCount/2 ;
                 <?php endfor; ?>
             <?php endif; ?>
         </nav>
+        <div class="playing">
+            <span 
+                class="radioplayer"
+                data-src="http://streamer.radio.co/s01995b9a1/listen"
+                data-playbutton="false"
+                data-volumeslider="false"
+                data-elapsedtime="false"
+                data-nowplaying="false"
+                data-showplayer="false"
+                data-showartwork="false"
+            >
+            </span>
+        </div>
     </header>
+    
