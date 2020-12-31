@@ -14,9 +14,10 @@
                     <section class="slider-hero js-slider-hero swiper-container">
                         <div class="swiper-wrapper">
                             <!-- Slides -->
-                            <div class="swiper-slide">Slide 1</div>
-                            <div class="swiper-slide">Slide 2</div>
-                            <div class="swiper-slide">Slide 3</div>
+                            <?php foreach ($images as $image) : ?>
+                                <?php $image_data = $image['slider_image']; ?>
+                                <img src="<?= $image_data['sizes']['large'] ?>" alt="<?= $image_data['alt'] ?>" class="slider-hero__image swiper-slide">
+                            <?php endforeach; ?>
                         </div>
                     </section>
                 <?php endif; ?>
