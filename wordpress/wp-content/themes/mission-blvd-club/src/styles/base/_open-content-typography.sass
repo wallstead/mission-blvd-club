@@ -5,11 +5,12 @@
 $transitionTime: 0.3s
 
 %open-content-typography
-    & > 
+    & >
         p
             @include typography.body-copy-medium
-            margin-bottom: 15px
-        
+            &:not(:last-child)
+              margin-bottom: 15px
+
         h1
             @include typography.h1
             margin-top: 25px
@@ -24,7 +25,7 @@ $transitionTime: 0.3s
             @include typography.h3
             margin-top: 25px
             margin-bottom: 15px
-        
+
         h4
             @include typography.h4
             margin-top: 25px

@@ -1,7 +1,6 @@
 @use '../base/colors'
 @use '../base/typography'
 @use '../base/breakpoints'
-@use '../base/full-width'
 
 .slider-hero
     width: 100%
@@ -36,6 +35,7 @@
         color: white
         position: relative
         text-align: center
+        cursor: default
 
         &::before
             content: attr(data-bg-title)

@@ -3,30 +3,35 @@
 @use "colors"
 
 label
-    @include typography.input-label
+  @include typography.input-label
 
 input[type="text"], input[type="email"], textarea
-    @include typography.text-input
-    background-color: white
-    border: 3px solid black
-    box-shadow: 0 0 colors.$primary-3
-    padding: 10px 20px
-    transition: box-shadow 0.3s
+  @include typography.text-input
+  background-color: white
+  border: 3px solid black
+  box-shadow: 0 0 colors.$primary-3
+  padding: 10px 20px
+  transition: box-shadow 0.3s
 
-    &:focus
-        outline: none
 
-    &:hover, &:focus
-        box-shadow: -3px -3px colors.$primary-3
+  &:hover, &:focus
+    box-shadow: -3px -3px colors.$primary-2
+
+  &:focus
+    outline: none
+    box-shadow: -5px -5px colors.$primary-3
 
 // When inputs wrapped by labels (damnit Contact Form 7)
 form
-    label
-        input, textarea
-            margin-top: 7px
-            margin-bottom: 15px
+  label
+    input, textarea
+      margin-top: 7px
+      margin-bottom: 15px
 
 // let's make all inputs take full width of form in Contact Form 7 forms
 form.wpcf7-form
-    input, textarea
-        width: 100%
+  input[type="text"], input[type="email"], textarea
+    width: 100%
+
+  .wpcf7-not-valid-tip
+    margin-bottom: 20px

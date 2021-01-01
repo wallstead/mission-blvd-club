@@ -1,7 +1,7 @@
 @use "breakpoints"
 @use "typography"
 @use "colors"
-@use "full-width"
+@use "width-helpers"
 @use "open-content-blocks"
 @use "open-content-typography"
 
@@ -51,7 +51,7 @@ $transitionTime: 0.25s
       right: 230px
       -webkit-mask-size: cover
       transform: rotateZ(-25deg) scaleX(-1)
-      
+
       @include breakpoints.large-screen
         width: 150px
         height: 250px
@@ -66,36 +66,22 @@ $transitionTime: 0.25s
 
   &__constrained-container
     margin: 0 auto
-    max-width: 100%
+    width: 100%
     position: relative
     z-index: 2
 
     @include breakpoints.medium-screen
-      max-width: calc(2/3 * 100%)
-
-    & > .alignfull
-      @extend %full-width
-
-    $container-padding-mobile: 20px
-    $container-padding: 30px
-    $border-width: 20px
-
-    & > .alignwide
-      position: relative
-      left: calc(100% * -1/4)
-      width: calc(100vw - 2*#{$container-padding-mobile})
-
-      @include breakpoints.medium-screen
-        left: calc(100% * -1/4)
-        width: calc(100vw - 2*#{$container-padding})
-        max-width: calc(#{breakpoints.$max-content-width} - 2*#{$container-padding})
-
-      @include breakpoints.large-screen
-        width: calc(100vw - 2*#{$container-padding} - 2*#{$border-width})
+      max-width: 850px
 
     @extend %open-content-blocks
     @extend %open-content-typography
-  
-  &__entry-point 
+
+    & > .alignfull
+      @include width-helpers.full-width
+
+    & > .alignwide
+      @include width-helpers.wide-width
+
+  &__entry-point
     @extend %open-content-blocks
     @extend %open-content-typography

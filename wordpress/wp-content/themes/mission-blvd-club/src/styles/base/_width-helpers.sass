@@ -1,0 +1,28 @@
+@use "breakpoints"
+// For forcing full or wide width when inside a container
+$container-padding-mobile: 20px
+$container-padding: 30px
+
+@mixin full-width
+  width: 100vw
+  position: relative
+  left: 50%
+  right: 50%
+  margin-left: -50vw
+  margin-right: -50vw
+
+@mixin wide-width
+  position: relative
+  width: calc(100vw - 2*#{$container-padding-mobile})
+  max-width: calc(#{breakpoints.$max-content-width} - 2*#{$container-padding})
+
+  @include breakpoints.medium-screen
+    left: calc(((100vw - 2*#{$container-padding}) - 100%) * (-1/2))
+    width: calc(100vw - 2*#{$container-padding})
+
+  @include breakpoints.large-screen
+    width: calc(100vw - 2*#{$container-padding})
+    left: calc(((min(100vw, #{breakpoints.$max-content-width}) - 2*#{$container-padding}) - 100%) * (-1/2))
+
+
+
