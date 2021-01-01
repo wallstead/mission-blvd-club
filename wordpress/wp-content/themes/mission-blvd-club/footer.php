@@ -7,17 +7,20 @@
     <footer class="footer js-footer">
         <div class="footer__container container">
             <div class="footer__section">
-                <p class="footer__section-title">Mission Boulevard Club</p>
-                <div class="footer__section-links">
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
+                <p class="footer__section-title">Stay Connected</p>
+                <p class="footer__section-intro-text">We'll let you know when we're dropping something special.</p>
+                <div class="footer__section-content">
+                    <form action="https://gmail.us7.list-manage.com/subscribe/post" method="POST" class="footer__newsletter-form">
+                        <input type="hidden" name="u" value="4aec738100ad880560c0275a8">
+                        <input type="hidden" name="id" value="55b38f257c">
+                        <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" placeholder="you@example.com" class="footer__email-input">
+                        <button type="submit" name="submit"class="footer__submit-input">Subscribe <i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__section">
+                <p class="footer__section-title">Our Socials</p>
+                <div class="footer__section-content">
                         <div class="footer__external-link-item">
                             test
                         </div>
@@ -28,28 +31,9 @@
                             test
                         </div>
                 </div>
-            </div>
-            <div class="footer__section">
-                <p class="footer__section-title">Boulevard Heights Radio</p>
-                <div class="footer__section-links">
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
+                <p class="footer__section-title">More Links</p>
+                <div class="footer__section-content">
+                        test
                 </div>
             </div>
         </div>

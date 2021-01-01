@@ -32,7 +32,7 @@
         align-items: center
 
     &__title
-        @include typography.hero-title
+        @include typography.hero-title-mobile
         color: white
         position: relative
         text-align: center
@@ -45,3 +45,6 @@
             color: transparentize(white, 0.5)
             -webkit-text-stroke: 2px white
             z-index: -1
+
+        @include breakpoints.medium-screen
+            @include typography.hero-title

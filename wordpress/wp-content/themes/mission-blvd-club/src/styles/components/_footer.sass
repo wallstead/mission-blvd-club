@@ -17,24 +17,72 @@
             flex-direction: row
 
     &__section
-        width: 50%
+        width: 100%
         color: white
         padding: 10px 0
+
+        @include breakpoints.medium-screen
+             width: 50%
 
     &__section-title
         @include typography.footer-section-title
         color: colors.$secondary-2
         margin-bottom: 10px
 
-    &__section-links
-        width: fit-content
-        display: grid
-        justify-content: start
-        grid-template-columns: 1fr 1fr 1fr
-        column-gap: 5px
-        row-gap: 5px
+    &__section-intro-text
+        @include typography.body-copy-medium
+        color: colors.$secondary-2
+        margin-bottom: 13px
+
+    &__section-content
+        display: flex
+        position: relative
+
+        &:not(:last-of-type)
+            margin-bottom: 20px
 
     &__external-link-item
         width: 50px
         height: 50px
         background-color: white
+
+        &:not(:last-of-type)
+            margin-right: 5px
+
+    &__newsletter-form
+        width: 100%
+        display: flex
+
+        @include breakpoints.medium-screen
+            width: calc(100% - 25px)
+
+    &__email-input
+        @include typography.footer-input
+        background-color: white
+        height: 100%
+        border: 3px solid black
+        box-shadow: -3px -3px colors.$fourthary-3 // teal
+        padding: 10px 20px
+        margin-right: 10px
+        width: calc(100% - 162px - 10px)
+
+    &__submit-input
+        @include typography.footer-button
+        background-color: black
+        border: none
+        height: 100%
+        border: 3px solid black
+        box-shadow: 0px 0px colors.$fourthary-3 // teal
+        padding: 10px 20px
+        cursor: pointer
+        transition: box-shadow 0.3s
+        border-radius: 10px
+        color: colors.$primary-0
+        flex-shrink: 0
+        width: 162px
+
+        &:hover
+            box-shadow: -3px -3px colors.$fourthary-3
+
+
+        
