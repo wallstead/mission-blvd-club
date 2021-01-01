@@ -3,66 +3,80 @@
 @use '../base/breakpoints'
 
 .footer
-    background-color: colors.$primary-0
+  background-color: colors.$primary-0
+  position: relative
+
+  &__container
+    display: flex
+    flex-direction: column
+    padding-top: 50px
+    padding-bottom: 50px
     position: relative
 
-    &__container
-        display: flex
-        flex-direction: column
-        padding-top: 50px
-        padding-bottom: 50px
-        position: relative
+    @include breakpoints.medium-screen
+      flex-direction: row
+      justify-content: space-between
 
-        @include breakpoints.medium-screen
-            flex-direction: row
-            justify-content: space-between
+  &__section
+    width: 100%
+    color: white
+    padding: 10px 0
 
-    &__section
-        width: 100%
-        color: white
-        padding: 10px 0
+    @include breakpoints.medium-screen
+      width: calc(50%  - 40px)
 
-        @include breakpoints.medium-screen
-             width: calc(50%  - 40px)
+  &__section-title
+    @include typography.footer-section-title
+    color: colors.$secondary-2
+    margin-bottom: 10px
 
-    &__section-title
-        @include typography.footer-section-title
-        color: colors.$secondary-2
-        margin-bottom: 10px
+  &__section-intro-text
+    @include typography.body-copy-medium
+    color: colors.$secondary-2
+    margin-bottom: 13px
 
-    &__section-intro-text
-        @include typography.body-copy-medium
-        color: colors.$secondary-2
-        margin-bottom: 13px
+  &__section-content
+    display: flex
+    position: relative
 
-    &__section-content
-        display: flex
-        position: relative
+    &:not(:last-of-type)
+      margin-bottom: 20px
 
-        &:not(:last-of-type)
-            margin-bottom: 20px
+  &__external-link
+    text-decoration: none
 
-    &__external-link-item
-        width: 50px
-        height: 50px
-        background-color: white
+    &:not(:last-of-type)
+        margin-right: 5px
 
-        &:not(:last-of-type)
-            margin-right: 5px
+  &__external-link-item
+    background-color: black
+    width: 60px
+    height: 60px
+    border-radius: 30px
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 1.5rem
+    color: white
+    margin-bottom: 7px
+    transition: background-color 0.3s, border-color 0.3s
+    border: 2px solid colors.$primary-2
+    flex-shrink: 0
 
-    &__newsletter-form
-        width: 100%
-        display: flex
+    &:hover
+      background-color: colors.$primary-3
+      border-color: colors.$primary-3
 
-    &__email-input
-        height: 100%
-        margin-right: 10px
-        width: calc(100% - 162px - 10px)
+  &__newsletter-form
+    width: 100%
+    display: flex
 
-    &__submit-input
-        height: 100%
-        flex-shrink: 0
-        width: 162px
+  &__email-input
+    height: 100%
+    margin-right: 10px
+    width: calc(100% - 162px - 10px)
 
-        &:hover
-            box-shadow: -3px -3px colors.$fourthary-3
+  &__submit-input
+    height: 100%
+    flex-shrink: 0
+    width: 162px

@@ -21,15 +21,21 @@
             <div class="footer__section">
                 <p class="footer__section-title">Our Socials</p>
                 <div class="footer__section-content">
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
-                        <div class="footer__external-link-item">
-                            test
-                        </div>
+                        <a href="#" class="footer__external-link">
+                            <div class="footer__external-link-item">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="footer__external-link">
+                            <div class="footer__external-link-item">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="footer__external-link">
+                            <div class="footer__external-link-item">
+                                <i class="fab fa-mixcloud"></i>
+                            </div>
+                        </a>
                 </div>
                 <p class="footer__section-title">More Links</p>
                 <div class="footer__section-content">
@@ -38,7 +44,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://public.radio.co/playerapi/jquery.radiocoplayer.min.js"></script>
 
