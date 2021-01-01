@@ -27,7 +27,7 @@
     <?php endif; ?>
     <div class="open-content">
         <div class="open-content__container container --bottom-fade">
-            <div class="open-content__constrained-container">
+            <div class="open-content__constrained-container  animate__animated animate__fadeIn">
                 <?php if (empty($images)): ?>
                     <h1><?= the_title(); ?></h1>
                 <?php endif; ?>
