@@ -6,9 +6,42 @@
 .slider-hero
     width: 100%
     height: 500px
+    position: relative
 
     &__image
         width: 100%
         height: 100%
         object-fit: cover
-        
+
+    &__content
+        z-index: 2
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        background: linear-gradient(transparentize(colors.$secondary-1, 0.5), transparent)
+
+    &__text-content
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+    &__title
+        @include typography.hero-title
+        color: white
+        position: relative
+        text-align: center
+
+        &::before
+            content: attr(data-bg-title)
+            position: absolute
+            top: -3px
+            left: -4px
+            color: transparentize(white, 0.5)
+            -webkit-text-stroke: 2px white
+            z-index: -1

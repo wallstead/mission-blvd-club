@@ -12,7 +12,7 @@ export default class SliderHero {
             fadeEffect: {
                 crossFade: true
             },
-            speed: 1000,
+            speed: 2000,
             loop: true,
             autoplay: {
                 delay: 2000,

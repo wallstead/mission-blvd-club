@@ -18,6 +18,11 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+            <div class="slider-hero__content">
+                <div class="slider-hero__text-content container animate__animated animate__fadeIn">
+                    <h1 class="slider-hero__title" data-bg-title="Mission Boulevard Club">Mission Boulevard Club</h1>
+                </div>
+            </div>
         </section>
     <?php endif; ?>
     <div class="open-content">

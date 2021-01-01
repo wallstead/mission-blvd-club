@@ -66,9 +66,12 @@ $transitionTime: 0.25s
 
   &__constrained-container
     margin: 0 auto
-    max-width: calc(2/3 * 100%)
+    max-width: 100%
     position: relative
     z-index: 2
+
+    @include breakpoints.medium-screen
+      max-width: calc(2/3 * 100%)
 
     & > .alignfull
       @extend %full-width
