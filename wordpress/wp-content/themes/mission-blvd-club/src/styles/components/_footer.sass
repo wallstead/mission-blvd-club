@@ -15,6 +15,7 @@
 
         @include breakpoints.medium-screen
             flex-direction: row
+            justify-content: space-between
 
     &__section
         width: 100%
@@ -22,7 +23,7 @@
         padding: 10px 0
 
         @include breakpoints.medium-screen
-             width: 50%
+             width: calc(50%  - 40px)
 
     &__section-title
         @include typography.footer-section-title
@@ -52,9 +53,6 @@
     &__newsletter-form
         width: 100%
         display: flex
-
-        @include breakpoints.medium-screen
-            width: calc(100% - 25px)
 
     &__email-input
         @include typography.footer-input

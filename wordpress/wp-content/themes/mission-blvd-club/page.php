@@ -20,7 +20,7 @@
             </div>
             <div class="slider-hero__content">
                 <div class="slider-hero__text-content container animate__animated animate__fadeIn">
-                    <h1 class="slider-hero__title" data-bg-title="Mission Boulevard Club">Mission Boulevard Club</h1>
+                    <h1 class="slider-hero__title" data-bg-title="<?= the_title(); ?>"><?= the_title(); ?></h1>
                 </div>
             </div>
         </section>
@@ -28,6 +28,9 @@
     <div class="open-content">
         <div class="open-content__container container --bottom-fade">
             <div class="open-content__constrained-container">
+                <?php if (empty($images)): ?>
+                    <h1><?= the_title(); ?></h1>
+                <?php endif; ?>
                 <?php the_content(); ?>
             </div>
         </div>
