@@ -2,7 +2,7 @@
 @use '../base/typography'
 @use '../base/breakpoints'
 
-.footer 
+.footer
     background-color: colors.$primary-0
     position: relative
 
@@ -60,17 +60,7 @@
         width: calc(100% - 162px - 10px)
 
     &__submit-input
-        @include typography.footer-button
-        background-color: black
-        border: none
         height: 100%
-        border: 3px solid black
-        box-shadow: 0px 0px colors.$fourthary-3 // teal
-        padding: 10px 20px
-        cursor: pointer
-        transition: box-shadow 0.3s
-        border-radius: 10px
-        color: colors.$primary-0
         flex-shrink: 0
         width: 162px
 
