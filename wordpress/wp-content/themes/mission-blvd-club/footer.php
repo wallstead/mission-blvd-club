@@ -6,7 +6,7 @@
 
     <footer class="footer js-footer">
         <div class="footer__container container">
-            <div class="footer__section">
+            <div class="footer__section --large">
                 <p class="footer__section-title">Stay Connected</p>
                 <p class="footer__section-intro-text">We'll let you know when we're dropping something special.</p>
                 <div class="footer__section-content">
@@ -20,6 +20,7 @@
             </div>
             <div class="footer__section">
                 <p class="footer__section-title">Our Socials</p>
+                <p class="footer__section-intro-text --socials">Follow us for updates.</p>
                 <div class="footer__section-content">
                         <a href="#" class="footer__external-link">
                             <div class="footer__external-link-item">
@@ -37,7 +38,9 @@
                             </div>
                         </a>
                 </div>
-                <?php if (isset($footerNav) && !empty($footerNav)) : ?>
+            </div>
+            <?php if (isset($footerNav) && !empty($footerNav)) : ?>
+                <div class="footer__section">
                     <p class="footer__section-title">More Links</p>
                     <div class="footer__section-content">
                         <div class="footer__nav">
@@ -46,8 +49,8 @@
                             <?php endforeach; ?>
                         </div>
                     </div>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
         </div>
     </footer>
 

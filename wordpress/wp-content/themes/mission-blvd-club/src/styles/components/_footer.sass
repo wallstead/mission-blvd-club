@@ -2,28 +2,28 @@
 @use '../base/typography'
 @use '../base/breakpoints'
 
+$transitionTime: 0.3s
+
 .footer
   background-color: colors.$primary-0
   position: relative
 
   &__container
-    display: flex
-    flex-direction: column
+    display: grid
+    grid-template-columns: 1fr
     padding-top: 50px
     padding-bottom: 50px
     position: relative
+    gap: 10px
 
     @include breakpoints.medium-screen
-      flex-direction: row
-      justify-content: space-between
+      gap: 50px
+      grid-template-columns: 3fr 1fr 1fr
 
   &__section
     width: 100%
     color: white
     padding: 10px 0
-
-    @include breakpoints.medium-screen
-      width: calc(50%  - 40px)
 
   &__section-title
     @include typography.footer-section-title
@@ -34,6 +34,9 @@
     @include typography.body-copy-medium
     color: colors.$secondary-2
     margin-bottom: 13px
+
+    &.\--socials
+      margin-bottom: 10px
 
   &__section-content
     display: flex
@@ -58,7 +61,6 @@
     align-items: center
     font-size: 1.5rem
     color: white
-    margin-bottom: 7px
     transition: background-color 0.3s, border-color 0.3s
     border: 2px solid colors.$primary-2
     flex-shrink: 0
@@ -86,4 +88,11 @@
     flex-direction: column
 
   &__nav-link
-    width: 100%
+    color: colors.$secondary-2
+    text-decoration: none
+    transition: color $transitionTime
+    @include typography.footer-nav-link
+
+    &:hover
+      text-decoration: underline
+      color: colors.$primary-3
