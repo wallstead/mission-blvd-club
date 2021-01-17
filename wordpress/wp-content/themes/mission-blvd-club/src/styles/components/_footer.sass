@@ -99,8 +99,11 @@ $transitionTime: 0.3s
 
   &__extra
     padding-top: 20px
-    padding-bottom: 20px
+    padding-bottom: 70px
     background: linear-gradient(colors.$primary-1 10%, colors.$primary-0)
+
+    @include breakpoints.medium-screen
+      padding-bottom: 20px
 
   &__copyright
     @include typography.footer-copyright

@@ -18,4 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   new Player();
+  console.log('test')
 });

@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/85d0c6c3ac.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=block" rel="stylesheet">
-    
+
     <?php wp_head(); ?>
 </head>
 
@@ -39,7 +39,7 @@ $logoIndex = $linkCount/2 ;
                             <a href="<?= $mainNav[$i]->url; ?>" class="header__main-nav-link"><?= $mainNav[$i]->title; ?></a>
                         </div>
                     <?php elseif ($i > $logoIndex): ?>
-                        <div class="header__main-nav-link-container"> 
+                        <div class="header__main-nav-link-container">
                             <?php if (!empty($mainNav[$i-1]->children)): ?>
                                 <div class="header__main-nav-link">
                                     <?= $mainNav[$i-1]->title; ?>
@@ -57,8 +57,8 @@ $logoIndex = $linkCount/2 ;
                 <?php endfor; ?>
             <?php endif; ?>
         </nav>
-        <div class="playing">
-            <span 
+        <div class="player --shown">
+            <span
                 class="radioplayer"
                 data-src="http://streamer.radio.co/s01995b9a1/listen"
                 data-playbutton="false"
@@ -71,4 +71,3 @@ $logoIndex = $linkCount/2 ;
             </span>
         </div>
     </header>
-    

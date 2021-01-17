@@ -1,0 +1,23 @@
+@use '../base/colors'
+@use '../base/typography'
+@use '../base/breakpoints'
+
+$transitionTime: 0.3s
+
+.player
+  position: fixed
+  bottom: 0
+  background-color: transparentize(colors.$secondary-0, 0.2)
+  height: 50px
+  width: 100%
+  transform-origin: top
+  transform: scaleY(0)
+  transition: transform $transitionTime
+
+  @include breakpoints.medium-screen
+    position: absolute
+    top: 100%
+    bottom: auto
+
+  &.\--shown
+    transform: scaleY(1)
