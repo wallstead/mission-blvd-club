@@ -1,7 +1,7 @@
     <?php
     require_once(get_stylesheet_directory() . '/inc/custom/MenuBuilder.class.php');
     $menuBuilder = new MenuBuilder();
-    $primaryNav = $menuBuilder->buildNav('Footer Primary');
+    $footerNav = $menuBuilder->buildNav('Footer Navigation');
     ?>
 
     <footer class="footer js-footer">
@@ -37,10 +37,16 @@
                             </div>
                         </a>
                 </div>
-                <p class="footer__section-title">More Links</p>
-                <div class="footer__section-content">
-                        test
-                </div>
+                <?php if (isset($footerNav) && !empty($footerNav)) : ?>
+                    <p class="footer__section-title">More Links</p>
+                    <div class="footer__section-content">
+                        <div class="footer__nav">
+                            <?php foreach ($footerNav as $link): ?>
+                                <a href="<?= $link->url; ?>" class="footer__nav-link"><?= $link->title; ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </footer>
