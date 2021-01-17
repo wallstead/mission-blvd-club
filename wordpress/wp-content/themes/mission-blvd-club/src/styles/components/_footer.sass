@@ -11,10 +11,10 @@ $transitionTime: 0.3s
   &__container
     display: grid
     grid-template-columns: 1fr
-    padding-top: 50px
-    padding-bottom: 50px
     position: relative
     gap: 10px
+    padding-top: 40px
+    padding-bottom: 40px
 
     @include breakpoints.medium-screen
       gap: 50px
@@ -96,3 +96,23 @@ $transitionTime: 0.3s
     &:hover
       text-decoration: underline
       color: colors.$primary-3
+
+  &__extra
+    padding-top: 20px
+    padding-bottom: 20px
+    background: linear-gradient(colors.$primary-1 10%, colors.$primary-0)
+
+  &__copyright
+    @include typography.footer-copyright
+    color: colors.$primary-3
+
+  &__copyright-link
+    color: colors.$secondary-2
+    text-decoration: none
+    transition: color $transitionTime
+
+    &:hover
+      text-decoration: underline
+      color: colors.$primary-3
+
+

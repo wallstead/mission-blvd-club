@@ -52,6 +52,11 @@
                 </div>
             <?php endif; ?>
         </div>
+        <div class="footer__extra">
+            <div class="footer__extra-container container">
+                <p class="footer__copyright">&copy; <?= date('Y'); ?> Mission Boulevard Club | <a href="https://allstead.dev" class="footer__copyright-link">Website Design &amp; Code</a> by Willis Allstead</p>
+            </div>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
