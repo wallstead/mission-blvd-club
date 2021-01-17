@@ -13,6 +13,7 @@ $transitionTime: 0.3s
   transform-origin: top
   transform: scaleY(0)
   transition: transform $transitionTime
+  color: white
 
   @include breakpoints.medium-screen
     position: absolute
@@ -21,3 +22,24 @@ $transitionTime: 0.3s
 
   &.\--shown
     transform: scaleY(1)
+
+  & > div // radio.co inserts a rogue div.
+    position: relative
+    height: 100%
+
+    @extend .container
+
+  &__toggle-play
+    background: transparent
+    border: none
+    padding: 0
+    color: white
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+
+  &__toggle-play-icon
+    font-size: 2rem
+    display: none
+

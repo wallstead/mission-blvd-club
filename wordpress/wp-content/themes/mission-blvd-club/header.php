@@ -58,8 +58,8 @@ $logoIndex = $linkCount/2 ;
             <?php endif; ?>
         </nav>
         <div class="player --shown">
-            <span
-                class="radioplayer"
+            <div
+                class="radioplayer container"
                 data-src="http://streamer.radio.co/s01995b9a1/listen"
                 data-playbutton="false"
                 data-volumeslider="false"
@@ -68,6 +68,11 @@ $logoIndex = $linkCount/2 ;
                 data-showplayer="false"
                 data-showartwork="false"
             >
-            </span>
+                <button class="player__toggle-play">
+                    <i class="fas fa-play-circle js-play-icon player__toggle-play-icon"></i>
+                    <i class="fas fa-pause-circle js-pause-icon player__toggle-play-icon"></i>
+                </button>
+
+            </div>
         </div>
     </header>
