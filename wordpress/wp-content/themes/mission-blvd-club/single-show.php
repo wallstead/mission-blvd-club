@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php 
+<?php
     $fields = get_fields();
     $socials = $fields['show_social-links'];
 
@@ -14,9 +14,9 @@
             )
         )
     ) );
-?>  
+?>
 <main id="content" class="js-body">
-    <div class="open-content">
+    <div class="open-content --no-top-space">
         <div class="open-content__container container --bottom-fade">
             <div class="open-content__constrained-container">
                 <section class="detail --show animate__animated animate__fadeIn">
@@ -55,7 +55,7 @@
                                     <?php foreach ($dj_query->posts as $index => $dj) : ?>
                                         <?php
                                             $extra_text = '';
-                                            
+
                                             if ($dj_query->post_count == 1) {
                                                 $extra_text = '';
                                             } else if ($dj_query->post_count == 2) {

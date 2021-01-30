@@ -22,17 +22,17 @@
                 <p class="footer__section-title">Our Socials</p>
                 <p class="footer__section-intro-text --socials">Follow us for updates.</p>
                 <div class="footer__section-content">
-                        <a href="#" class="footer__external-link">
+                        <a href="https://www.instagram.com/missionboulevardclub/" class="footer__external-link">
                             <div class="footer__external-link-item">
                                 <i class="fab fa-instagram"></i>
                             </div>
                         </a>
-                        <a href="#" class="footer__external-link">
+                        <a href="https://twitter.com/missionblvdclub" class="footer__external-link">
                             <div class="footer__external-link-item">
                                 <i class="fab fa-twitter"></i>
                             </div>
                         </a>
-                        <a href="#" class="footer__external-link">
+                        <a href="https://www.mixcloud.com/BoulevardHeights/" class="footer__external-link">
                             <div class="footer__external-link-item">
                                 <i class="fab fa-mixcloud"></i>
                             </div>

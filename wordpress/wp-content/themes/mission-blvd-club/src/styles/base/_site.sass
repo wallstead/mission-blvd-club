@@ -1,7 +1,12 @@
 @use 'colors'
-    
+@use 'breakpoints'
+
 .page
-    background-color: colors.$primary-0
+  background-color: white
 
 #content
-    padding-top: 100px
+  padding-top: 100px
+
+  &:not(.\--slider-enabled)
+    @include breakpoints.medium-screen
+      padding-top: 150px // give room for radio on desktop

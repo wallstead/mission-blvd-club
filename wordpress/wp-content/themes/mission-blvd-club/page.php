@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
-<?php 
+<?php
     $fields = get_fields();
-    
+
     $images = $fields['slider_images'];
 ?>
 
-<main id="content" class="js-body">
+<main id="content" class="js-body <?= !empty($images) ? '--slider-enabled' : '' ?>">
     <?php if (!empty($images)): ?>
         <section class="slider-hero js-slider-hero swiper-container">
             <div class="swiper-wrapper">

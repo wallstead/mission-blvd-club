@@ -7,10 +7,11 @@ $transitionTime: 0.3s
 .player
   position: fixed
   bottom: 0
-  background-color: transparentize(colors.$secondary-0, 0.2)
+  background-color: transparentize(colors.$secondary-0, 0.4)
+  backdrop-filter: blur(10px)
   height: 50px
   width: 100%
-  transform-origin: top
+  transform-origin: bottom
   transform: scaleY(0)
   transition: transform $transitionTime
   color: white
@@ -19,15 +20,27 @@ $transitionTime: 0.3s
     position: absolute
     top: 100%
     bottom: auto
+    transform-origin: top
 
   &.\--shown
     transform: scaleY(1)
 
+    & > div
+      opacity: 1
+
+
   & > div // radio.co inserts a rogue div.
     position: relative
     height: 100%
+    opacity: 0
+    transition: opacity $transitionTime
+    transition-delay: $transitionTime
+    display: flex
 
     @extend .container
+
+    .nostyle // weird element from radio.co
+      display: none
 
   &__toggle-play
     background: transparent
@@ -38,8 +51,42 @@ $transitionTime: 0.3s
     justify-content: center
     align-items: center
     height: 100%
+    outline: none
+    margin-left: auto
 
   &__toggle-play-icon
     font-size: 2rem
     display: none
+    cursor: pointer
+
+    &.\--shown
+      display: block
+
+  &__track-info
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    height: 100%
+    margin-right: 25px
+    @include typography.track-info
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    flex-shrink: 10
+
+  &__track-artwork-container
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    margin-right: 25px
+
+  &__track-artwork
+    vertical-align: bottom
+    height: 100%
+    width: 50px
+
+  &__track-title
+    font-weight: 900
+    text-overflow: ellipsis
 

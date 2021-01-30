@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
-<?php 
+<?php
     $fields = get_fields();
     $shows = $fields["dj_shows"];
     $socials = $fields["dj_social-links"];
-?>  
+?>
 <main id="content" class="js-body">
-    <div class="open-content">
+    <div class="open-content --no-top-space">
         <div class="open-content__container container --bottom-fade">
             <div class="open-content__constrained-container">
                 <section class="detail animate__animated animate__fadeIn">
@@ -45,7 +45,7 @@
                                     <?php foreach ($shows as $index => $show) : ?>
                                         <?php
                                             $extra_text = '';
-                                            
+
                                             if (count($shows) == 1) {
                                                 $extra_text = '';
                                             } else if (count($shows) == 2) {

@@ -3,19 +3,19 @@
 ?>
 <?php get_header(); ?>
 
-<?php 
+<?php
     $fields = get_fields();
     $prefix = 'listing_';
-    
+
     $description = $fields[$prefix . 'description'];
 
     // get the djs
     $query = new WP_Query( array(
         'post_type' => 'dj',
     ) );
-?>  
+?>
 <main id="content" class="js-body">
-    <div class="open-content">
+    <div class="open-content --no-top-space">
         <div class="open-content__container container">
             <div class="open-content__constrained-container">
                 <section class="listing --dj">
@@ -31,7 +31,7 @@
                         <div class="listing__listing">
                             <?php if ( $query->have_posts() ) : ?>
                                 <?php while( $query->have_posts() ) : $query->the_post() ?>
-                                    <?php 
+                                    <?php
                                         $dj_fields = get_fields();
                                         $dj_shows = $dj_fields["dj_shows"];
                                     ?>
