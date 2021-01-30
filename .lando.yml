@@ -1,4 +1,9 @@
 name: mission-blvd-club
 recipe: wordpress
 config:
-  webroot: wordpress
+  webroot: .
+  via: nginx
+  xdebug: true
+  php: '7.4'
+  database: mysql
+  site: mission-blvd-club
