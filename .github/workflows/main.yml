@@ -1,8 +1,8 @@
 name: Deploy to WP Engine
 
-push:
-    branches:
-      - master
+on:
+  push:
+    branches: [ master, staging ]
 
 jobs:
   build:
