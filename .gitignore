@@ -51,3 +51,5 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+wp-config.php
